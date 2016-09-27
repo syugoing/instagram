@@ -1,0 +1,15 @@
+<%= form_for(@photo) do |f| %>
+<%= f.error_messages! %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+  <br>
+
+  <div class="field">
+    <%= f.file_field :photodate %>
+    <%= f.hidden_field :photodate_cache %>
+  </div><br>
+
+  <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+<% end %>
+
+<%= link_to "写真一覧にもどる", photos_path %>

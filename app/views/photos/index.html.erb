@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <p class="flash"><%= notice %><%= alert %></p>
+    <h1>All Photos</h1>
+    <%= link_to "写真を投稿", new_photo_path, class: 'btn btn-default' %>
+
+
+    <div class="row" >
+    <% @photos.reverse.each do |photo| %>
+
+      <div class="col-sx-12" style="padding: 0;">
+        <div class="box photocol ">
+          <br>
+          <%= send_img(photo) %>
+          <h6>@<%= photo.user.name %></h6>
+          <h4><strong><%= photo.title %></strong></h4>
+          <%= link_to "編集", edit_photo_path(photo.id), class: 'btn btn-default btn-sm btn-success' %>
+          <%= link_to "削除", photo_path(photo.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+        </div>
+      </div>
+
+    <% end %>
+    </div>
+  </div>
+</div>
